@@ -28,11 +28,9 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json && node scripts/minify-dist.mjs",
     "test": "vitest",
     "test:watch": "vitest watch",
-    "prepack": "node scripts/sync-readme.mjs npm",
-    "postpack": "node scripts/sync-readme.mjs github",
     "prepublish:check": "npm test && npm run build && npm pack --dry-run",
     "prepare": "npm run build"
   },
@@ -41,6 +39,7 @@
     "fast-check": "^4.5.3",
     "jsdom": "^28.1.0",
     "lit": "^3.3.2",
+    "terser": "^5.46.0",
     "typescript": "^5.9.3",
     "urlpattern-polyfill": "^10.1.0",
     "vitest": "^4.0.18"
