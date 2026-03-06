@@ -1,0 +1,47 @@
+{
+  "name": "paisely-router",
+  "version": "0.1.0",
+  "description": "A production-grade client-side router built on URLPattern with a Lit adapter.",
+  "license": "MIT",
+  "author": "Johnny",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnny/paisely-router.git"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./adapters/lit": {
+      "types": "./dist/adapters/lit.d.ts",
+      "import": "./dist/adapters/lit.js"
+    }
+  },
+  "files": [
+    "dist",
+    "router-docs.md",
+    "Publishing to NPM.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest",
+    "test:watch": "vitest watch",
+    "prepublish:check": "npm test && npm run build && npm pack --dry-run",
+    "prepare": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.3",
+    "fast-check": "^4.5.3",
+    "jsdom": "^28.1.0",
+    "lit": "^3.3.2",
+    "typescript": "^5.9.3",
+    "urlpattern-polyfill": "^10.1.0",
+    "vitest": "^4.0.18"
+  }
+}
+
