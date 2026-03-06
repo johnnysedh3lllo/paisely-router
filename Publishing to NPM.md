@@ -6,7 +6,7 @@ Once tests compile and pass, you can publish the latest version of `paisely-rout
 
 ### 1. Prepare the Package
 - **Version Number:** Choose your version number. Update `"version"` inside `package.json` following semantic versioning (e.g., jump from `0.1.0` to `0.1.1` for patches, `0.2.0` for minor features).
-- **Verify Configuration:** Ensure `main`, `module`, `types`, and `exports` inside `package.json` correctly point to the `dist/` folder containing the compiled code, so module-resolution and TypeScript types work for users.
+- **Verify Configuration:** Ensure `main`, `module`, `types`, and `exports` inside `package.json` correctly point to the `dist/` folder containing the compiled code, and `repository.url` uses `git+https://...`.
 - **Build Step:** The package relies on ES Modules output, so build the source with TypeScript via:
   ```bash
   npm run build
@@ -21,6 +21,7 @@ If this is your first time publishing, you need to configure your local machine 
   npm login
   ```
   You will be prompted to enter your credentials and 2FA token.
+  If your CLI reports `ENEEDAUTH`, run `npm adduser` and complete login.
 - **Test Login:** Verify you are logged in properly with:
   ```bash
   npm whoami
@@ -64,7 +65,12 @@ npm publish --access public
 - **`403 Forbidden` or authentication error**
   - Run `npm whoami` to verify login state.
   - Re-authenticate with `npm login`.
+  - If needed, use `npm adduser` (some environments prompt this instead of `npm login`).
   - If 2FA is enabled, use an up-to-date OTP.
+
+- **npm warns it auto-corrected `package.json` fields during publish**
+  - Run `npm pkg fix`.
+  - Re-check `repository.url` and other metadata fields before publishing again.
 
 - **`You cannot publish over the previously published versions`**
   - Bump version first (`npm version patch` or manual `package.json` update).

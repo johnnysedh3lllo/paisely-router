@@ -6,7 +6,7 @@
   "author": "Johnny",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/johnny/paisely-router.git"
+    "url": "git+https://github.com/johnnysedh3lllo/paisely-router.git"
   },
   "type": "module",
   "main": "dist/index.js",
@@ -44,4 +44,6 @@
     "vitest": "^4.0.18"
   }
 }
+
+
 
