@@ -1,6 +1,6 @@
 {
   "name": "paisely-router",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A production-grade client-side router built on URLPattern with a Lit adapter.",
   "license": "MIT",
   "author": "Johnny",
