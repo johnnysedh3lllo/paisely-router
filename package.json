@@ -8,7 +8,6 @@
     "type": "git",
     "url": "git+https://github.com/johnnysedh3lllo/paisely-router.git"
   },
-  "homepage": "https://github.com/johnnysedh3lllo/paisely-router",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
