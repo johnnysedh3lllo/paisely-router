@@ -42,7 +42,19 @@ To avoid publishing broken packages, run these checks a final time:
    ```bash
    tar -tf paisely-router-<version>.tgz
    ```
-   Confirm you have `dist/`, `package.json`, and docs (`Publishing to NPM.md`, `router-docs.md`).
+   Confirm you have `dist/`, `package.json`, `README.md`, and `LICENSE`.
+
+### README Strategy (Full on GitHub, Small on npm)
+
+This project keeps:
+- full docs source at `docs/github-readme-source.md`
+- compact npm readme source at `docs/npm-readme-source.md`
+
+The publish flow swaps README automatically:
+- `prepack`: copies npm readme source -> `README.md`
+- `postpack`: restores GitHub readme source -> `README.md`
+
+So GitHub keeps the full README, while npm gets the optimized one.
 
 ### 4. Publish
 If everything looks correct, run:

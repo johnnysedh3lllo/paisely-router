@@ -24,13 +24,15 @@
   },
   "files": [
     "dist",
-    "router-docs.md",
-    "Publishing to NPM.md"
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "vitest",
     "test:watch": "vitest watch",
+    "prepack": "node scripts/sync-readme.mjs npm",
+    "postpack": "node scripts/sync-readme.mjs github",
     "prepublish:check": "npm test && npm run build && npm pack --dry-run",
     "prepare": "npm run build"
   },
