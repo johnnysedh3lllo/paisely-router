@@ -51,6 +51,20 @@ npm publish --access public
 ```
 *Note: If you run into an error like "name already exists" or a 2FA prompt fails, read the terminal output—most npm CLI errors explain exactly what went wrong or if you forgot a One-Time Password.*
 
+### Private Publish (Only You Can Use It)
+
+npm private packages must be scoped. Example:
+
+```json
+"name": "@your-scope/paisely-router"
+```
+
+Then publish privately:
+
+```bash
+npm publish --access restricted
+```
+
 ### 5. Post-Publish Maintenance
 - **Bumping Versions:** Always bump the version in `package.json` before trying to publish again. `npm version patch`, `npm version minor`, or `npm version major` can automate this and create a git commit/tag simultaneously.
 - **Deprecating or Unpublishing:** If you publish a severe bug by accident, you can use `npm deprecate` to warn users quickly. You can only fully unpublish a version within the first 72 hours of its release.
@@ -67,6 +81,12 @@ npm publish --access public
   - Re-authenticate with `npm login`.
   - If needed, use `npm adduser` (some environments prompt this instead of `npm login`).
   - If 2FA is enabled, use an up-to-date OTP.
+- **`E403 ... Two-factor authentication ... is required to publish packages`**
+  - Publish with OTP:
+    ```bash
+    npm publish --access restricted --otp=<code>
+    ```
+  - Or use a granular access token configured for publish with 2FA bypass (if your account policy allows it).
 
 - **npm warns it auto-corrected `package.json` fields during publish**
   - Run `npm pkg fix`.
