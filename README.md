@@ -45,7 +45,7 @@ customElements.define("app-root", AppRoot);
 
 ## Docs
 
-- Full documentation: <https://github.com/johnnysedh3lllo/paisely-router/docs/README.md>
+- Full documentation: <https://github.com/johnnysedh3lllo/paisely-router/docs>
 - Publishing guide: `Publishing to NPM.md`
 - Testing workflow: `testing-workflow.md`
 
